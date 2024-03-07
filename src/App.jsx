@@ -20,7 +20,6 @@ function App() {
 
   return (
     <div>
-      <h1>Peticiones HTTP</h1>
       <FormCar
       createNewCar={createNewCar}
       updateInfo={updateInfo}
