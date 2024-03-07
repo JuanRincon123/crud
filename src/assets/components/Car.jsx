@@ -1,9 +1,12 @@
 
-const Car = ({ car, deleteCardById }) => {
+const Car = ({ car, deleteCardById,setUpdateInfo }) => {
 
 
     const handleDeleteCar = () =>{
         deleteCardById(car.id)
+    }
+    const handleUpdate = () =>{
+        setUpdateInfo(car)
     }
     return (
         <article>
@@ -14,6 +17,7 @@ const Car = ({ car, deleteCardById }) => {
                 <li><span>Price: </span><span>{car.price}</span></li>
             </ul>
             <button onClick={handleDeleteCar}>Delete This Car</button>
+            <button onClick={handleUpdate}>Update This Car</button>
         </article>
     )
 }

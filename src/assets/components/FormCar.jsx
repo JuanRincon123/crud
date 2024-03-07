@@ -1,17 +1,39 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 
-const FormCar = () => {
+const FormCar = ({ createNewCar, updateInfo,updateCarById,setUpdateInfo }) => {
 
-    const  { register, handleSubmit } = useForm()
+    const { register, handleSubmit, reset } = useForm()
 
-    const  submit = (data) => console.log(data)
+    useEffect(() => {
+        reset(updateInfo)
+    }, [updateInfo])
+
+
+
+    const submit = (data) => {
+        if (updateInfo) {
+            updateCarById(updateInfo.id,data)
+            setUpdateInfo() 
+        } else {
+
+            createNewCar(data)
+
+        }
+        reset({
+            brand: '',
+            model: '',
+            color: '',
+            year: '',
+            price: ''
+        })
+    }
     return (
         <form onSubmit={handleSubmit(submit)}>
             <div>
                 <div>
                     <label htmlFor="brand">Brand</label>
-                    <input {...register('brand',{required: "this is required"})} id='brand' type="text" /></div>
+                    <input {...register('brand', { required: "this is required" })} id='brand' type="text" /></div>
                 <div>
                     <label htmlFor="model">Model</label>
                     <input {...register('model')} id='model' type="text" /></div>
@@ -26,7 +48,7 @@ const FormCar = () => {
                     <input {...register('price')} id='price' type="text" /></div>
             </div>
             <br />
-            <button>Create</button>
+            <button>{updateInfo ? 'Update' : 'Create'}</button>
         </form>
     )
 }

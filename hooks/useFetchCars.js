@@ -14,6 +14,7 @@ const useFetch = () => {
       .catch(err => console.log(err))
   }
 
+  //CREATE
   const createNewCard = (data) => {
     axios.post(`${baseUrl}cars/`, data)
       .then(res => {
@@ -22,6 +23,8 @@ const useFetch = () => {
       })
       .catch(err => console.log(err))
   }
+
+  //DELETE
   const deleteCarById = (id) => {
     axios.delete(`${baseUrl}cars/${id}`)
       .then(res => {
@@ -31,9 +34,22 @@ const useFetch = () => {
       })
       .catch(err => console.log(err))
   }
-  return [cars, getAllCars, createNewCard, deleteCarById]
-}
 
+  //UPDATE
+  const updateCarById = (id,data) => {
+    axios.put(`${baseUrl}cars/${id}/`,data)
+    .then(res =>{
+      console.log(res.data)
+      const carsUpdate =cars.map(car =>{
+        if(data.id === car.id ) return data;
+        else return car;
+      })
+      setCars(carsUpdate)
+    })
+    .catch(err => console.log(err))
+  }
+  return [cars, getAllCars, createNewCard, deleteCarById,updateCarById]
+}
 
 
 
