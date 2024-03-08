@@ -52,6 +52,7 @@ body{
   margin: 16px 0;
   font-size: 16px;
   cursor: pointer;
+  border: none;
 }
 
 .form-register .butons:hover{
@@ -76,8 +77,18 @@ body{
 
 .container{
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
-  align-items: start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media screen and (max-width:578px) {
+  .form-register{
+  width: 350px;
+  background: #24303c;
+  padding: 20px;
+  margin: 5%; 
+  } 
+
 }
