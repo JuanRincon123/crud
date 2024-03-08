@@ -34,20 +34,20 @@ const FormCar = ({ createNewCar, updateInfo,updateCarById,setUpdateInfo }) => {
             <div>
             <h1>Create New Car</h1>
                 <div>
-                    <label  htmlFor="brand" >Brand:</label>
-                    <input placeholder='Toyota EX7'className='controls'{...register('brand', { required: "this is required" })} id='brand' type="text" /></div>
+                    <label  htmlFor="brand" ></label>
+                    <input placeholder='Brand'className='controls'{...register('brand', { required: true })} id='brand' type="text" /></div>
                 <div>
-                    <label htmlFor="model">Model:</label>
-                    <input placeholder='Coupé' className='controls'{...register('model')} id='model' type="text" /></div>
+                    <label htmlFor="model"></label>
+                    <input placeholder='Model' className='controls'{...register('model', { required: true })} id='model' type="text" /></div>
                 <div>
-                    <label htmlFor="color">Color:</label>
-                    <input placeholder='Black' className='controls'{...register('color')} id='color' type="text" /></div>
+                    <label htmlFor="color"></label>
+                    <input placeholder='Color' className='controls'{...register('color', { required: true })} id='color' type="text" /></div>
                 <div>
-                    <label htmlFor="year">Year:</label>
-                    <input placeholder='2020' className='controls'{...register('year')} id='year' type="text" /></div>
+                    <label htmlFor="year"></label>
+                    <input placeholder='Year' className='controls'{...register('year', { required: true })} id='year' type="text" /></div>
                 <div>
-                    <label htmlFor="price">Price:</label>
-                    <input placeholder='1000000' className='controls'{...register('price')} id='price' type="text" /></div>
+                    <label htmlFor="price"></label>
+                    <input placeholder='Price' className='controls'{...register('price', { required: true })} id='price' type="text" /></div>
             </div>
             <br />
             <button className='butons'>{updateInfo ? 'Update' : 'Create'}</button>

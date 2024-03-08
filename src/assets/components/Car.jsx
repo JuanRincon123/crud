@@ -1,4 +1,4 @@
-
+import React from "react"
 const Car = ({ car, deleteCardById,setUpdateInfo }) => {
 
 
@@ -9,15 +9,17 @@ const Car = ({ car, deleteCardById,setUpdateInfo }) => {
         setUpdateInfo(car)
     }
     return (
-        <article>
-            <h2>{`#${car.id} ${car.brand} ${car.model}`}</h2>
-            <ul>
-                <li><span>Color: </span><span>{car.color}</span></li>
-                <li><span>Year: </span><span>{car.year}</span></li>
-                <li><span>Price: </span><span>{car.price}</span></li>
+        
+        <article className="form-register"> 
+        <h4 style={{color:'gray', fontSize:20}}>#{car.id}</h4>
+            <h2>{` ${car.brand} - ${car.model}`}</h2>
+            <ul style={{marginLeft:95}} >
+                <li style={{padding:5}}><span style={{color:"#FFD700",fontSize:23}}>Color </span><span style={{fontSize:20,marginLeft:15 }}>{car.color}</span></li>
+                <li style={{padding:5}}><span style={{color:"#FFD700",fontSize:23}}>Year </span><span style={{fontSize:20,marginLeft:15 }}>{car.year}</span></li>
+                <li style={{padding:5}}><span style={{color:"#FFD700",fontSize:23}}>Price </span><span style={{fontSize:20,marginLeft:15 }}>{car.price}</span></li>
             </ul>
-            <button onClick={handleDeleteCar}>Delete This Car</button>
-            <button onClick={handleUpdate}>Update This Car</button>
+            <button className='butons' onClick={handleDeleteCar}>Delete This Car</button>
+            <button className='butons'onClick={handleUpdate}>Update This Car</button>
         </article>
     )
 }

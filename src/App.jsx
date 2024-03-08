@@ -19,15 +19,14 @@ function App() {
 
 
   return (
-    <div>
+    <div  className="container">
       <FormCar
       createNewCar={createNewCar}
       updateInfo={updateInfo}
       updateCarById={updateCarById}
       setUpdateInfo={setUpdateInfo}
       / >
-      <br/>
-      <hr />
+
      
       <div>
         {
@@ -41,6 +40,9 @@ function App() {
             ))
           }
       </div>
+      <footer className='footer'>
+        <h3 className='copy'>©CreateNewCar</h3>
+      </footer>
     </div>
   )
 }
